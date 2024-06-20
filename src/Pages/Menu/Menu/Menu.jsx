@@ -6,7 +6,6 @@ import pizzaImage from "../../../assets/menu/pizza-bg.jpg";
 import soupsImage from "../../../assets/menu/soup-bg.jpg";
 import useMenu from "../../../Hooks/useMenu";
 import SectionTitle from "../../../component/SectionTitle/SectionTitle";
-
 import MenuCategory from "../../../component/MenuCategory/MenuCategory";
 import Cover from "../../Shared/Cover/Cover";
 

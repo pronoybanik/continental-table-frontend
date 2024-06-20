@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import Cover from "../../Pages/Shared/Cover/Cover";
+import PrimaryButton from "../../Pages/Shared/PrimaryButton/PrimaryButton";
 import MenuItem from "../MenuItem/MenuItem";
 
 const MenuCategory = ({ item, bgImage, coverTitle, coverSubTitle }) => {
@@ -12,6 +14,10 @@ const MenuCategory = ({ item, bgImage, coverTitle, coverSubTitle }) => {
           <MenuItem key={data?._id} item={data} />
         ))}
       </div>
+
+      <Link to="/order" className="flex justify-center my-6">
+        {coverTitle && <PrimaryButton name={`Order ${coverTitle}`} />}
+      </Link>
     </section>
   );
 };
