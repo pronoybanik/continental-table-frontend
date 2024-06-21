@@ -5,6 +5,7 @@ import ContinentalInfo from "../ContinentalInfo/ContinentalInfo";
 import Featured from "../Featured/Featured";
 import PopularMenu from "../PopularMenu/PopularMenu";
 import Testimonials from "../Testimonials/Testimonials";
+import Card from "../Card/Card";
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
       <Category />
       <ContinentalInfo />
       <PopularMenu />
+      <Card />
       <Featured />
       <Testimonials />
     </div>

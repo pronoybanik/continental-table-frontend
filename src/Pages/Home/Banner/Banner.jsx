@@ -10,7 +10,7 @@ import imageSix from "../../../assets/home/05.png";
 const Banner = () => {
   return (
     <div>
-      <Carousel>
+      <Carousel >
         <div>
           <img src={imageOne} />
         </div>
