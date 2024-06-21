@@ -1,13 +1,16 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import {
   loadCaptchaEnginge,
   LoadCanvasTemplate,
   validateCaptcha,
 } from "react-simple-captcha";
+import { AuthContext } from "../../../Providers/AuthProvider";
+import { Link } from "react-router-dom";
 
 const LogIn = () => {
   const captchaRef = useRef(null);
   const [disabled, setDisabled] = useState(true);
+  const { signIn } = useContext(AuthContext);
 
   useEffect(() => {
     loadCaptchaEnginge(6);
@@ -19,6 +22,11 @@ const LogIn = () => {
     const email = formData.email.value;
     const password = formData.password.value;
     console.log(email, password);
+
+    signIn(email, password).then((result) => {
+      const user = result.user;
+      console.log(user);
+    });
   };
 
   const handleValueCaptcha = () => {
@@ -27,9 +35,7 @@ const LogIn = () => {
     if (validateCaptcha(userCaptchaValue) == true) {
       setDisabled(false);
       alert("Captcha Matched");
-      console.log("disabled click", disabled);
     } else {
-      console.log("disabled error", disabled);
       setDisabled(true);
       alert("Captcha Does Not Match");
     }
@@ -170,9 +176,9 @@ const LogIn = () => {
           <div className="flex items-center justify-between">
             <p className="text-sm text-gray-500">
               No account?
-              <a className="underline" href="#">
+              <Link to="/signUp" className="underline" href="#">
                 Sign up
-              </a>
+              </Link>
             </p>
 
             <button

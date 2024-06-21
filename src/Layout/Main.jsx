@@ -13,7 +13,9 @@ const Main = () => {
 
   const location = useLocation();
 
-  const removeNavBarAndFooter = location.pathname.includes("/login");
+  const removeNavBarAndFooter =
+    location.pathname.includes("/login") ||
+    location.pathname.includes("/signUp");
 
   return (
     <div>
