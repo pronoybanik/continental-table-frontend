@@ -26,7 +26,7 @@ const NavBar = () => {
       </li>
 
       <li>
-        <Link to="">
+        <Link to="/dashboard/cart">
           <button className="btn">
             <FaCartArrowDown />
             <div className="badge badge-secondary">+{cart.length}</div>
