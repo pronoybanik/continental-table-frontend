@@ -1,15 +1,43 @@
-import { MdDeleteOutline } from "react-icons/md";
+import Swal from "sweetalert2";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import useCart from "../../../Hooks/useCart";
 import SectionTitle from "../../../component/SectionTitle/SectionTitle";
 import PrimaryButton from "../../Shared/PrimaryButton/PrimaryButton";
+import { RiDeleteBin6Line } from "react-icons/ri";
 
 const Cart = () => {
-  const [cart] = useCart();
+  const [cart, refetch] = useCart();
+  const axiosSecure = useAxiosSecure();
 
   const totalPrice = cart.reduce(
     (sumValue, currentValue) => sumValue + parseFloat(currentValue?.price),
     0
   );
+
+  const handleDelate = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosSecure.delete(`/cart/${id}`).then((res) => {
+          if (res.data.deletedCount > 0) {
+            refetch();
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your file has been deleted.",
+              icon: "success",
+            });
+          }
+        });
+      }
+    });
+  };
 
   return (
     <section>
@@ -46,32 +74,20 @@ const Cart = () => {
                     <td>
                       <div className="flex items-center gap-3">
                         <div className="avatar">
-                          <p className="text-center font-semibold text-lg mt-2 mr-2">
+                          <p className="text-center font-semibold text-lg mt-4 mr-2">
                             {index + 1}.
                           </p>
-                          <div className="mask mask-squircle h-12 w-12">
+                          <div className="mask mask-squircle h-16 w-16">
                             <img
                               src={item?.image}
                               alt="Avatar Tailwind CSS Component"
                             />
                           </div>
                         </div>
-                        <div>
-                          <div className="font-bold">{item?.name}</div>
-                          <div className="text-sm opacity-50">
-                            United States
-                          </div>
-                        </div>
                       </div>
                     </td>
-                    <td>
-                      {item?.name}
-                      <br />
-                      <span className="badge badge-ghost badge-sm">
-                        Desktop Support Technician
-                      </span>
-                    </td>
-                    <td>{item?.price}</td>
+                    <td>{item?.name}</td>
+                    <td>$ {item?.price}</td>
                     <th>
                       {/* <button className="btn btn-ghost btn-xs bg-red-500 ">
                         <MdDeleteOutline style={{ fontSize: "25px" }} />
@@ -79,11 +95,12 @@ const Cart = () => {
 
                       <span className="inline-flex overflow-hidden rounded-md border bg-red-600 shadow-sm">
                         <button
-                          className="inline-block px-2 py-1 text-gray-700 hover:bg-gray-50 focus:relative"
-                          title="View Orders"
+                          onClick={() => handleDelate(item?._id)}
+                          className="inline-block px-3 py-2 text-gray-700  focus:relative"
+                          title="delete product"
                         >
-                          <MdDeleteOutline
-                            style={{ fontSize: "25px", color: "white" }}
+                          <RiDeleteBin6Line
+                            style={{ fontSize: "20px", color: "white" }}
                           />
                         </button>
                       </span>
