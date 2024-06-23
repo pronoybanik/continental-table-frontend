@@ -1,10 +1,11 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
 
 const SignUp = () => {
   const { createUser, updateUserProfile, logOut } = useContext(AuthContext);
+  const navigate = useNavigate();
   const handleRegister = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -38,10 +39,9 @@ const SignUp = () => {
               },
             });
 
-            logOut()
-            .then(() => {
-                navigator("/login")
-            })
+            logOut().then(() => {
+              navigate("/login");
+            });
           })
           .catch((error) => console.log(error));
       }
