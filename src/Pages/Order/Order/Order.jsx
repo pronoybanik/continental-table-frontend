@@ -4,11 +4,9 @@ import { Helmet } from "react-helmet-async";
 import useMenu from "../../../Hooks/useMenu";
 import { useState } from "react";
 import OrderCategory from "../../../component/OrderCategory/OrderCategory";
-import { useParams } from "react-router-dom";
 
 const Order = () => {
   const [menu] = useMenu();
-  const { category } = useParams();
   const [orderValue, setOrderValue] = useState("pizza");
   const dessertData = menu.filter((data) => data.category === "dessert");
   const saladData = menu.filter((data) => data.category === "salad");

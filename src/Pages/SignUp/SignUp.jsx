@@ -1,21 +1,49 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const SignUp = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, updateUserProfile, logOut } = useContext(AuthContext);
   const handleRegister = (event) => {
     event.preventDefault();
     const form = event.target;
     const name = form.name.value;
+    const photoUrl = form.photoUrl.value;
     const email = form.email.value;
     const password = form.password.value;
+    console.log(name, photoUrl, email, password);
 
     createUser(email, password).then((result) => {
       const user = result.user;
       if (user?.uid) {
-        form.reset();
-        alert("user Register done");
+        updateUserProfile(name, photoUrl)
+          .then(() => {
+            form.reset();
+            Swal.fire({
+              title: "User create successfully.",
+              showClass: {
+                popup: `
+                    animate__animated
+                    animate__fadeInUp
+                    animate__faster
+                  `,
+              },
+              hideClass: {
+                popup: `
+                    animate__animated
+                    animate__fadeOutDown
+                    animate__faster
+                  `,
+              },
+            });
+
+            logOut()
+            .then(() => {
+                navigator("/login")
+            })
+          })
+          .catch((error) => console.log(error));
       }
     });
   };
@@ -105,6 +133,23 @@ const SignUp = () => {
                   type="text"
                   id="Name"
                   name="name"
+                  required
+                  className="mt-1 pl-2 w-full rounded-md py-3 border border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
+                />
+              </div>
+
+              <div className="col-span-12 ">
+                <label
+                  htmlFor="Photo URL"
+                  className="block text-sm font-medium text-gray-700"
+                >
+                  photoUrl
+                </label>
+
+                <input
+                  type="url"
+                  id="photoUrl"
+                  name="photoUrl"
                   required
                   className="mt-1 pl-2 w-full rounded-md py-3 border border-gray-200 bg-white text-sm text-gray-700 shadow-sm"
                 />

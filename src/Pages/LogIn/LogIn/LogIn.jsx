@@ -1,16 +1,20 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import {
   loadCaptchaEnginge,
   LoadCanvasTemplate,
   validateCaptcha,
 } from "react-simple-captcha";
 import { AuthContext } from "../../../Providers/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const LogIn = () => {
-  const captchaRef = useRef(null);
   const [disabled, setDisabled] = useState(true);
   const { signIn } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
 
   useEffect(() => {
     loadCaptchaEnginge(6);
@@ -23,16 +27,59 @@ const LogIn = () => {
     const password = formData.password.value;
     console.log(email, password);
 
-    signIn(email, password).then((result) => {
-      const user = result.user;
-      console.log(user);
-    });
+    signIn(email, password)
+      .then((result) => {
+        const user = result.user;
+
+        if (user?.uid) {
+          formData.reset();
+          Swal.fire({
+            title: "User Login successfully",
+            showClass: {
+              popup: `
+                animate__animated
+                animate__fadeInUp
+                animate__faster
+              `,
+            },
+            hideClass: {
+              popup: `
+                animate__animated
+                animate__fadeOutDown
+                animate__faster
+              `,
+            },
+          });
+          navigate(from, { replace: true });
+        }
+      })
+      .catch((error) => {
+        Swal.fire({
+          title: "Login failed",
+          text: error.message,
+          icon: "error",
+          showClass: {
+            popup: `
+              animate__animated
+              animate__fadeInUp
+              animate__faster
+            `,
+          },
+          hideClass: {
+            popup: `
+              animate__animated
+              animate__fadeOutDown
+              animate__faster
+            `,
+          },
+        });
+      });
   };
 
-  const handleValueCaptcha = () => {
-    const userCaptchaValue = captchaRef.current.value;
+  const handleValueCaptcha = (event) => {
+    const userCaptchaValue = event.target.value;
 
-    if (validateCaptcha(userCaptchaValue) == true) {
+    if (validateCaptcha(userCaptchaValue)) {
       setDisabled(false);
       alert("Captcha Matched");
     } else {
@@ -137,7 +184,7 @@ const LogIn = () => {
               <input
                 type="text"
                 name="captcha"
-                ref={captchaRef}
+                onBlur={handleValueCaptcha}
                 className="w-full border rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
                 placeholder="Enter password"
               />
@@ -165,12 +212,6 @@ const LogIn = () => {
                 </svg>
               </span>
             </div>
-            <button
-              className="w-full text-center uppercase bg-black text-white font-semibold px-4 py-2 mt-2"
-              onClick={handleValueCaptcha}
-            >
-              verify Captcha
-            </button>
           </div>
 
           <div className="flex items-center justify-between">
@@ -182,7 +223,7 @@ const LogIn = () => {
             </p>
 
             <button
-              disabled={disabled}
+              disabled={false}
               type="submit"
               className={
                 disabled === true

@@ -1,6 +1,15 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../Providers/AuthProvider";
+import { FaCartArrowDown } from "react-icons/fa";
 
 const NavBar = () => {
+  const { user, logOut } = useContext(AuthContext);
+  console.log(user);
+  const handleLogOut = () => {
+    logOut();
+  };
+
   const navOption = (
     <>
       <li>
@@ -16,11 +25,30 @@ const NavBar = () => {
       </li>
 
       <li>
-        <Link to="/login">login</Link>
+        <Link to="">
+          <button className="btn">
+            <FaCartArrowDown />
+            <div className="badge badge-secondary">+0</div>
+          </button>
+        </Link>
       </li>
-      <li>
-        <Link to="/signUp">singUp</Link>
-      </li>
+
+      {user ? (
+        <>
+          <button onClick={handleLogOut} className="btn btn-error">
+            log out
+          </button>
+        </>
+      ) : (
+        <>
+          <li>
+            <Link to="/login">login</Link>
+          </li>
+          <li>
+            <Link to="/signUp">singUp</Link>
+          </li>
+        </>
+      )}
     </>
   );
 
