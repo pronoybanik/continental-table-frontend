@@ -7,6 +7,10 @@ import {
 import { AuthContext } from "../../../Providers/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import authImage from "../../../assets/others/authentication.png";
+import authSiteImage from "../../../assets/others/authentication2.png";
+import { CiFacebook } from "react-icons/ci";
+import { FaGithub, FaGoogle } from "react-icons/fa";
 
 const LogIn = () => {
   const [disabled, setDisabled] = useState(true);
@@ -89,15 +93,13 @@ const LogIn = () => {
   };
 
   return (
-    <section className="relative flex flex-wrap lg:h-screen lg:items-center">
+    <section
+      style={{ backgroundImage: `url(${authImage})` }}
+      className=" relative flex flex-wrap lg:h-[800px] lg:items-center lg:mt-20 shadow-2xl"
+    >
       <div className="w-full px-4 py-12 sm:px-6 sm:py-16 lg:w-1/2 lg:px-8 lg:py-24">
         <div className="mx-auto max-w-lg text-center">
-          <h1 className="text-2xl font-bold sm:text-3xl">Get started today!</h1>
-
-          <p className="mt-4 text-gray-500">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Et libero
-            nulla eaque error neque ipsa culpa autem, at itaque nostrum!
-          </p>
+          <h1 className="text-2xl font-bold sm:text-3xl">Login</h1>
         </div>
 
         <form
@@ -214,34 +216,42 @@ const LogIn = () => {
             </div>
           </div>
 
-          <div className="flex items-center justify-between">
-            <p className="text-sm text-gray-500">
-              No account?
-              <Link to="/signUp" className="underline" href="#">
-                Sign up
+          <button
+            disabled={disabled}
+            type="submit"
+            className={
+              disabled === true
+                ? "inline-block rounded-lg bg-slate-500 px-5 py-3 text-sm font-medium text-white w-full"
+                : "inline-block rounded-lg bg-[#D1A054] px-5 py-3 text-sm font-medium text-white  w-full"
+            }
+          >
+            Sign in
+          </button>
+          <div className="text-center font-semibold">
+            <p className="text-sm text-[#D1A054] ">
+              New Here?
+              <Link to="/signUp" className="underline ml-2" >
+                 Create A New Account
               </Link>
             </p>
-
-            <button
-              disabled={false}
-              type="submit"
-              className={
-                disabled === true
-                  ? "inline-block rounded-lg bg-slate-500 px-5 py-3 text-sm font-medium text-white"
-                  : "inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white"
-              }
-            >
-              Sign in
-            </button>
           </div>
+
         </form>
+        <div className="flex flex-col items-center gap-2 mt-6">
+          <p className="text-center font-semibold text-lg">or sign is with </p>
+          <div className="flex gap-14 mt-4">
+            <CiFacebook style={{ fontSize: "25px" }} />
+            <FaGoogle style={{ fontSize: "25px" }} />
+            <FaGithub style={{ fontSize: "25px" }} />
+          </div>
+        </div>
       </div>
 
-      <div className="relative h-64 w-full sm:h-96 lg:h-full lg:w-1/2">
+      <div className="relative z-10 h-64 w-full sm:h-96 lg:h-full lg:w-1/2">
         <img
           alt=""
-          src="https://images.unsplash.com/photo-1630450202872-e0829c9d6172?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
-          className="absolute inset-0 h-full w-full object-cover"
+          src={authSiteImage}
+          className="absolute  inset-0 h-full w-full object-contain"
         />
       </div>
     </section>

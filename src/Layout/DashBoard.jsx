@@ -45,11 +45,11 @@ const DashBoard = () => {
 
           <li className="flex gap-2 items-center  font-semibold mt-10">
             <FaHome style={{ fontSize: "25px" }} />
-            <NavLink to="">Home</NavLink>
+            <NavLink to="/">Home</NavLink>
           </li>
           <li className="flex gap-2 items-center  font-semibold mt-4">
             <IoMdMenu style={{ fontSize: "25px" }} />
-            <NavLink to="">Menu</NavLink>
+            <NavLink to="/menu">Menu</NavLink>
           </li>
           <li className="flex gap-2 items-center  font-semibold mt-4">
             <FaBagShopping style={{ fontSize: "25px" }} />
