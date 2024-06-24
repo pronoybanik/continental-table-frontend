@@ -9,8 +9,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import authImage from "../../../assets/others/authentication.png";
 import authSiteImage from "../../../assets/others/authentication2.png";
-import { CiFacebook } from "react-icons/ci";
-import { FaGithub, FaGoogle } from "react-icons/fa";
+import SocialLogin from "../../../component/SocialLogin/SocialLogin";
 
 const LogIn = () => {
   const [disabled, setDisabled] = useState(true);
@@ -230,20 +229,15 @@ const LogIn = () => {
           <div className="text-center font-semibold">
             <p className="text-sm text-[#D1A054] ">
               New Here?
-              <Link to="/signUp" className="underline ml-2" >
-                 Create A New Account
+              <Link to="/signUp" className="underline ml-2">
+                Create A New Account
               </Link>
             </p>
           </div>
-
         </form>
         <div className="flex flex-col items-center gap-2 mt-6">
           <p className="text-center font-semibold text-lg">or sign is with </p>
-          <div className="flex gap-14 mt-4">
-            <CiFacebook style={{ fontSize: "25px" }} />
-            <FaGoogle style={{ fontSize: "25px" }} />
-            <FaGithub style={{ fontSize: "25px" }} />
-          </div>
+          <SocialLogin />
         </div>
       </div>
 

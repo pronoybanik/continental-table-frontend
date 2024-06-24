@@ -1,6 +1,7 @@
 import { BsFillCartCheckFill } from "react-icons/bs";
-import { FaCalendar, FaHome } from "react-icons/fa";
-import { FaBagShopping } from "react-icons/fa6";
+import { FaBook, FaCalendar, FaHome, FaListUl } from "react-icons/fa";
+import { FaBagShopping, FaUserGroup } from "react-icons/fa6";
+import { ImSpoonKnife } from "react-icons/im";
 import { IoMdMenu } from "react-icons/io";
 import { MdContactPage, MdPayments, MdReviews } from "react-icons/md";
 import { TbBrandBooking } from "react-icons/tb";
@@ -16,6 +17,28 @@ const DashBoard = () => {
         </div>
 
         <ul className="uppercase">
+          <li className="flex gap-2 items-center  font-semibold mt-20">
+            <FaHome style={{ fontSize: "25px" }} />
+            <NavLink to="/">Admin Home</NavLink>
+          </li>
+          <li className="flex gap-2 items-center  font-semibold mt-4">
+            <ImSpoonKnife  style={{ fontSize: "25px" }} />
+            <NavLink to="/">Add Item</NavLink>
+          </li>
+          <li className="flex gap-2 items-center  font-semibold mt-4">
+            <FaListUl style={{ fontSize: "25px" }} />
+            <NavLink to="/">Manage Item</NavLink>
+          </li>
+          <li className="flex gap-2 items-center  font-semibold mt-4">
+            <FaBook style={{ fontSize: "25px" }} />
+            <NavLink to="/">Manage Booking</NavLink>
+          </li>
+          <li className="flex gap-2 items-center  font-semibold mt-4">
+            <FaUserGroup style={{ fontSize: "25px" }} />
+            <NavLink to="/dashboard/users">All User</NavLink>
+          </li>
+
+          <p>------------------</p>
           <li className="flex gap-2 items-center  font-semibold mt-20">
             <FaHome style={{ fontSize: "25px" }} />
             <NavLink to="/">user Home</NavLink>

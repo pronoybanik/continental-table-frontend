@@ -5,8 +5,7 @@ import Swal from "sweetalert2";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import authImage from "../../assets/others/authentication.png";
 import authSiteImage from "../../assets/others/authentication2.png";
-import { CiFacebook } from "react-icons/ci";
-import { FaGithub, FaGoogle } from "react-icons/fa";
+import SocialLogin from "../../component/SocialLogin/SocialLogin";
 
 const SignUp = () => {
   const { createUser, updateUserProfile, logOut } = useContext(AuthContext);
@@ -228,9 +227,7 @@ const SignUp = () => {
                 or sign is with
               </p>
               <div className="flex gap-14 mt-2">
-                <CiFacebook style={{ fontSize: "25px" }} />
-                <FaGoogle style={{ fontSize: "25px" }} />
-                <FaGithub style={{ fontSize: "25px" }} />
+                <SocialLogin />
               </div>
             </div>
           </div>
