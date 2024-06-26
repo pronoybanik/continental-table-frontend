@@ -63,8 +63,7 @@ const Cart = () => {
                   <th>Image</th>
                   <th>Name</th>
                   <th>Price</th>
-                  <th>Action</th>
-                  <th></th>
+                  <th>Delete</th>
                 </tr>
               </thead>
               <tbody>

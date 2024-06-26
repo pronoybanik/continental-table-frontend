@@ -24,7 +24,7 @@ const DashBoard = () => {
             <>
               <li className="flex gap-2 items-center  font-semibold mt-20">
                 <FaHome style={{ fontSize: "25px" }} />
-                <NavLink to="/">Admin Home</NavLink>
+                <NavLink to="">Admin Home</NavLink>
               </li>
               <li className="flex gap-2 items-center  font-semibold mt-4">
                 <ImSpoonKnife style={{ fontSize: "25px" }} />
@@ -32,11 +32,11 @@ const DashBoard = () => {
               </li>
               <li className="flex gap-2 items-center  font-semibold mt-4">
                 <FaListUl style={{ fontSize: "25px" }} />
-                <NavLink to="/">Manage Item</NavLink>
+                <NavLink to="/dashboard/manageItem">Manage Item</NavLink>
               </li>
               <li className="flex gap-2 items-center  font-semibold mt-4">
                 <FaBook style={{ fontSize: "25px" }} />
-                <NavLink to="/">Manage Booking</NavLink>
+                <NavLink to="">Manage Booking</NavLink>
               </li>
               <li className="flex gap-2 items-center  font-semibold mt-4">
                 <FaUserGroup style={{ fontSize: "25px" }} />
