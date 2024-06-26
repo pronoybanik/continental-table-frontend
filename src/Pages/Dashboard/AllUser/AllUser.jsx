@@ -15,7 +15,7 @@ const AllUser = () => {
       return res.data;
     },
   });
-  console.log(users);
+  
 
   const handleMakeAdmin = (user) => {
     axiosSecure.patch(`/users/admin/${user?._id}`).then((res) => {
@@ -61,7 +61,7 @@ const AllUser = () => {
       <SectionTitle heading="Manage all user" subHeading=" How many" />
 
       <div className="bg-white shadow w-4/5 mx-auto">
-        <div className="flex gap-2 justify-between items-center px-10 py-4">
+        <div className="flex gap-2 justify-between items-center px-10 pt-4">
           {/* <p className="text-2xl font-semibold uppercase">All User:</p> */}
           <p className="text-2xl font-semibold uppercase">
             Total User: {users?.length}
@@ -69,7 +69,7 @@ const AllUser = () => {
         </div>
 
         <div>
-          <div className="overflow-x-auto mt-4">
+          <div className="overflow-x-auto mt-4 p-6 ">
             <table className="table">
               {/* head */}
               <thead>
@@ -96,7 +96,9 @@ const AllUser = () => {
                         <GrUserAdmin style={{ fontSize: "25px" }} />
                       </td>
                     ) : (
-                      <p className="text-white w-full text-center font-semibold bg-slate-950 px-2 py-1 rounded-sm">Admin</p>
+                      <p className="text-white w-full text-center font-semibold bg-slate-950 px-2 py-1 rounded-sm">
+                        Admin
+                      </p>
                     )}
                     <th>
                       {/* <button className="btn btn-ghost btn-xs bg-red-500 ">
