@@ -28,7 +28,7 @@ const DashBoard = () => {
               </li>
               <li className="flex gap-2 items-center  font-semibold mt-4">
                 <ImSpoonKnife style={{ fontSize: "25px" }} />
-                <NavLink to="/">Add Item</NavLink>
+                <NavLink to="/dashboard/addItems">Add Item</NavLink>
               </li>
               <li className="flex gap-2 items-center  font-semibold mt-4">
                 <FaListUl style={{ fontSize: "25px" }} />
