@@ -13,21 +13,16 @@ const Order = () => {
   const pizzaData = menu.filter((data) => data.category === "pizza");
   const soupsData = menu.filter((data) => data.category === "soup");
   const drinksData = menu.filter((data) => data.category === "drinks");
-  console.log("cick one", orderValue);
 
   let foodData;
 
   if (orderValue === "salad") {
-    console.log("clink salad");
     foodData = <OrderCategory item={saladData} />;
   } else if (orderValue === "desserts") {
-    console.log("clink desserts");
     foodData = <OrderCategory item={dessertData} />;
   } else if (orderValue === "pizza") {
-    console.log("clink pizza");
     foodData = <OrderCategory item={pizzaData} />;
   } else if (orderValue === "soups") {
-    console.log("clink soups");
     foodData = <OrderCategory item={soupsData} />;
   } else if (orderValue === "drinks") {
     foodData = <OrderCategory item={drinksData} />;
