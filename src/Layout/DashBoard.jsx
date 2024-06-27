@@ -22,9 +22,10 @@ const DashBoard = () => {
         <ul className="uppercase">
           {isAdmin ? (
             <>
+              {/*  Admin Dashboard */}
               <li className="flex gap-2 items-center  font-semibold mt-20">
                 <FaHome style={{ fontSize: "25px" }} />
-                <NavLink to="">Admin Home</NavLink>
+                <NavLink to="/dashboard/adminHome">Admin Home</NavLink>
               </li>
               <li className="flex gap-2 items-center  font-semibold mt-4">
                 <ImSpoonKnife style={{ fontSize: "25px" }} />
@@ -44,6 +45,7 @@ const DashBoard = () => {
               </li>
             </>
           ) : (
+            // user dashboard
             <>
               <li className="flex gap-2 items-center  font-semibold mt-20">
                 <FaHome style={{ fontSize: "25px" }} />
@@ -84,11 +86,11 @@ const DashBoard = () => {
           </li>
           <li className="flex gap-2 items-center  font-semibold mt-4">
             <FaBagShopping style={{ fontSize: "25px" }} />
-            <NavLink to="/">shop</NavLink>
+            <NavLink to="/order/pizza">shop</NavLink>
           </li>
           <li className="flex gap-2 items-center  font-semibold mt-4">
             <MdContactPage style={{ fontSize: "25px" }} />
-            <NavLink to="/">contact</NavLink>
+            <NavLink to="">contact</NavLink>
           </li>
         </ul>
       </div>

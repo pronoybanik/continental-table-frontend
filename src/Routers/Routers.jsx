@@ -94,7 +94,7 @@ export const router = createBrowserRouter([
           </AdminPrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/menu/${params.id}`),
+          fetch(`https://continental-table-server.vercel.app/menu/${params.id}`),
       },
       {
         path: "adminHome",

@@ -15,7 +15,6 @@ const AllUser = () => {
       return res.data;
     },
   });
-  
 
   const handleMakeAdmin = (user) => {
     axiosSecure.patch(`/users/admin/${user?._id}`).then((res) => {
@@ -78,7 +77,6 @@ const AllUser = () => {
                   <th>Email</th>
                   <th>Role</th>
                   <th>Action</th>
-                  <th></th>
                 </tr>
               </thead>
               <tbody>
@@ -101,10 +99,6 @@ const AllUser = () => {
                       </p>
                     )}
                     <th>
-                      {/* <button className="btn btn-ghost btn-xs bg-red-500 ">
-                        <MdDeleteOutline style={{ fontSize: "25px" }} />
-                      </button> */}
-
                       <span className="inline-flex overflow-hidden rounded-md border bg-red-600 shadow-sm">
                         <button
                           onClick={() => handleDelateUser(user?._id)}
