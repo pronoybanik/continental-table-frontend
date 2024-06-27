@@ -1,0 +1,22 @@
+
+  
+  .carousel-item {
+    position: relative; /* Required for background overlay */
+  }
+  
+  .carousel-item img {
+    height: 700px;
+    width: max-content;
+  }
+  
+  .carousel-item::after {
+    /* Background overlay */
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Ensures full image coverage */
+    background-color: rgba(83, 67, 67, 0.5); /* Set desired opacity */
+  }
+  

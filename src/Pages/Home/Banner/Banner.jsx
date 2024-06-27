@@ -6,28 +6,29 @@ import imageThree from "../../../assets/home/03.png";
 import imageFore from "../../../assets/home/04.jpg";
 import imageFive from "../../../assets/home/05.png";
 import imageSix from "../../../assets/home/05.png";
+import "./Banner.css"; // Assuming a separate CSS file for styling
 
 const Banner = () => {
   return (
-    <div>
-      <Carousel >
-        <div>
-          <img src={imageOne} />
+    <div className="carousel-container">
+      <Carousel autoPlay>
+        <div className="carousel-item">
+          <img src={imageOne} alt="Image 1" />
         </div>
-        <div>
-          <img src={imageTwo} />
+        <div className="carousel-item">
+          <img src={imageTwo} alt="Image 2" />
         </div>
-        <div>
-          <img src={imageThree} />
+        <div className="carousel-item">
+          <img src={imageThree} alt="Image 3" />
         </div>
-        <div>
-          <img src={imageFore} />
+        <div className="carousel-item">
+          <img src={imageFore} alt="Image 4" />
         </div>
-        <div>
-          <img src={imageFive} />
+        <div className="carousel-item">
+          <img src={imageFive} alt="Image 5" />
         </div>
-        <div>
-          <img src={imageSix} />
+        <div className="carousel-item">
+          <img src={imageSix} alt="Image 6" />
         </div>
       </Carousel>
     </div>

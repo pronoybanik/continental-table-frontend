@@ -14,7 +14,9 @@ const NavBar = () => {
   const navOption = (
     <>
       <li>
-        <Link to="/">Home</Link>
+        <Link className=" text-white" to="/">
+          Home
+        </Link>
       </li>
 
       <li>
@@ -54,9 +56,10 @@ const NavBar = () => {
   );
 
   return (
-    <div className="navbar fixed z-50 bg-opacity-55 bg-black max-w-screen-2xl mx-auto">
-      <div className="navbar-start">
+    <div className="navbar fixed flex justify-evenly z-50 bg-opacity-55 bg-black max-w-screen-2xl mx-auto">
+      <div className="navbar-start flex">
         <div className="dropdown">
+          {/* mobile mood Navbar */}
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -80,17 +83,14 @@ const NavBar = () => {
             {navOption}
           </ul>
         </div>
-        <a className="btn btn-ghost inline-block text-white">
-          <h1 className="text-xl">continental table</h1>
-
-          <h2 className="text-xl">restaurant</h2>
-        </a>
+        <div className="text-white font-serif">
+          <p className="uppercase font-bold text-xl ">continental Table</p>
+          <p className="uppercase font-semibold text-lg">R e s t a u r a n t</p>
+        </div>
       </div>
+
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 text-white">{navOption}</ul>
-      </div>
-      <div className="navbar-end">
-        <a className="btn">Button</a>
       </div>
     </div>
   );
