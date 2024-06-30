@@ -225,7 +225,7 @@ const SignUp = () => {
               <p className="text-center font-semibold text-lg">
                 or sign is with
               </p>
-              <div className="flex gap-14 mt-2">
+              <div className="flex gap-14 mt-2 pb-20">
                 <SocialLogin />
               </div>
             </div>

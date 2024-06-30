@@ -15,7 +15,7 @@ const MenuCategory = ({ item, bgImage, coverTitle, coverSubTitle }) => {
         ))}
       </div>
 
-      <Link to={`/order/${coverTitle}`} className="flex justify-center my-6">
+      <Link to="/order" className="flex justify-center my-6">
         {coverTitle && <PrimaryButton name={`Order ${coverTitle}`} />}
       </Link>
     </section>

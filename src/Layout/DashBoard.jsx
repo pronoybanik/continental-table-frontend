@@ -49,15 +49,15 @@ const DashBoard = () => {
             <>
               <li className="flex gap-2 items-center  font-semibold mt-20">
                 <FaHome style={{ fontSize: "25px" }} />
-                <NavLink to="/">user Home</NavLink>
+                <NavLink to="/dashboard/userHome">user Home</NavLink>
               </li>
               <li className="flex gap-2 items-center  font-semibold mt-4">
                 <FaCalendar style={{ fontSize: "25px" }} />
-                <NavLink to="/">reservation</NavLink>
+                <NavLink to="">reservation</NavLink>
               </li>
               <li className="flex gap-2 items-center  font-semibold mt-4">
                 <MdPayments style={{ fontSize: "25px" }} />
-                <NavLink to="/">Payment History</NavLink>
+                <NavLink to="">Payment History</NavLink>
               </li>
               <li className="flex gap-2 items-center  font-semibold mt-4">
                 <BsFillCartCheckFill style={{ fontSize: "25px" }} />
@@ -65,11 +65,11 @@ const DashBoard = () => {
               </li>
               <li className="flex gap-2 items-center  font-semibold mt-4">
                 <MdReviews style={{ fontSize: "25px" }} />
-                <NavLink to="/dashboard/cart">Add review</NavLink>
+                <NavLink to="">Add review</NavLink>
               </li>
               <li className="flex gap-2 items-center  font-semibold mt-4">
                 <TbBrandBooking style={{ fontSize: "25px" }} />
-                <NavLink to="/dashboard/cart">My booking</NavLink>
+                <NavLink to="">My booking</NavLink>
               </li>
             </>
           )}
@@ -86,7 +86,7 @@ const DashBoard = () => {
           </li>
           <li className="flex gap-2 items-center  font-semibold mt-4">
             <FaBagShopping style={{ fontSize: "25px" }} />
-            <NavLink to="/order/pizza">shop</NavLink>
+            <NavLink to="/order">shop</NavLink>
           </li>
           <li className="flex gap-2 items-center  font-semibold mt-4">
             <MdContactPage style={{ fontSize: "25px" }} />

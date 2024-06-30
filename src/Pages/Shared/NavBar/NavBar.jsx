@@ -25,7 +25,7 @@ const NavBar = () => {
         <Link to="/menu">Menu</Link>
       </li>
       <li>
-        <Link to="/order/pizza">Order Food</Link>
+        <Link to="/order">Order Food</Link>
       </li>
       {user ? (
         isAdmin ? (
